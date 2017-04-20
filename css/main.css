@@ -3,11 +3,16 @@
 }
 
 body {
+  background-color: #f9f8f7;
   font-family: 'Roboto', sans-serif;
 }
 
+.hidden{
+  display: none;
+}
+
 button, input[type="text"] {
-  padding: 5px;
+  padding: 10px;
 }
 
 button:hover {
@@ -19,6 +24,59 @@ button:hover {
 }
 
 .wrapper {
+  background-color: #fff;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 40px auto;
+  padding: 40px;
+}
+
+h1{
+  margin: 0 0 25px 0;
+}
+
+h2{
+  line-height: 1.5em;
+}
+
+img{
+  max-width: 100%;
+}
+
+.message{
+  font-size: 18px;
+  text-align: center;
+}
+
+.message.error{
+  color: red;
+}
+.message.correct{
+  color: green;
+}
+
+.inputWrapper{
+  margin-bottom: 15px;
+}
+.inputWrapper input{
+  margin-right: 10px
+}
+.progress{
+  float: right;
+  margin-top: -20px;
+}
+.progress p{
+  font-size: 14px;
+  text-align: right;
+  margin: 0;
+} 
+
+.buttonWrapper{
+  clear: both;
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+input[type=submit], input[type=reset]{
+  float: right;
+  padding: 10px;
 }
