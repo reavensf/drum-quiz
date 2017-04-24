@@ -28,6 +28,7 @@ button:hover {
   max-width: 800px;
   margin: 40px auto;
   padding: 40px;
+  position: relative;
 }
 
 h1{
@@ -35,11 +36,23 @@ h1{
 }
 
 h2{
+  font-size: 2em;
   line-height: 1.5em;
 }
 
+h3{
+  font-size: 1.5em;
+}
+
+p{
+  line-height: 1.3em;
+}
+
 img{
+  display: block;
+  margin: 0 auto;
   max-width: 100%;
+  width: 35%;
 }
 
 .message{
@@ -61,8 +74,9 @@ img{
   margin-right: 10px
 }
 .progress{
-  float: right;
-  margin-top: -20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 .progress p{
   font-size: 14px;

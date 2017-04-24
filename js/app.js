@@ -2,65 +2,103 @@
 var quizState = {
    questionIndex: 0,
    questions:  [
-    {
-        question: 'In music, what instrument keeps the rythmn and tempo?',
-        questionChoiceA: 'Piano',
-        questionChoiceB: 'Drums',
-        questionChoiceC: 'Bass Guitar',
-        questionChoiceD: 'Metronome',
-        correctAnswer: 'Drums'
-    },
-    {
-        question: 'What musical instrument can allow you to have a great workout while playing it?',
-        questionChoiceA: 'Drums',
-        questionChoiceB: 'Guitar',
-        questionChoiceC: 'Triangle',
-        questionChoiceD: 'Zylophone',
-        correctAnswer: 'Drums'
-    },
-    {
-        question: 'What part of the drumset can act as the metronome during a song?',
-        questionChoiceA: 'Snare',
-        questionChoiceB: 'Kick Drum',
-        questionChoiceC: 'Cymbals',
-        questionChoiceD: 'Hi-hats',
-        correctAnswer: 'Hi-hats' 
-    },
-    {
-        question: 'What is the name of this drum piece?',
-        questionImage: '<img src="img/snare-drum.jpg">',
-        questionChoiceA: 'Tom',
-        questionChoiceB: 'Hi-Hat',
-        questionChoiceC: 'Snare',
-        questionChoiceD: 'Kick Drum',
-        correctAnswer: 'Snare' 
-    },
-    {
-        question: 'Which parts of a drumset do you use your feet to make/alter a sound?',
-        questionChoiceA: 'Hi-Hat and Kick Drum',
-        questionChoiceB: 'Kick drum and Snare',
-        questionChoiceC: 'Hit-Hats and Toms',
-        questionChoiceD: 'Kick Drum and Cymbals', 
-        correctAnswer: 'Hi-Hat and Kick Drum'
-    },
-    {
-        question: 'What is the name of this piece?',
-        questionImage: '<img src="img/drum-throne.jpg">',
-        questionChoiceA: 'Drum Seat',
-        questionChoiceB: 'Drum Chair',
-        questionChoiceC: 'Drum Stool',
-        questionChoiceD: 'Drum Throne', 
-        correctAnswer: 'Drum Throne'
-    },
-    {
-        question: 'What is the best instrumnet to play in the world?',
-        questionChoiceA: 'Drums',
-        questionChoiceB: 'Piano',
-        questionChoiceC: 'Electric Guitar',
-        questionChoiceD: 'Bass Guitar', 
-        correctAnswer: 'Drums'
+        {
+            question: 'In music, what instrument keeps the rythmn and tempo?',
+            choices: ['Piano','Drums','Bass Guitar', 'Metronome'],
+            questionChoiceA: 'Piano',
+            questionChoiceB: 'Drums',
+            questionChoiceC: 'Bass Guitar',
+            questionChoiceD: 'Metronome',
+            correctAnswer: 'Drums',
+        },
+        {
+            question: 'What musical instrument can allow you to have a great workout while playing it?',
+            choices: ['Drums','Guitar','Triangle', 'Zylophone'],
+            questionChoiceA: 'Drums',
+            questionChoiceB: 'Guitar',
+            questionChoiceC: 'Triangle',
+            questionChoiceD: 'Zylophone',
+            correctAnswer: 'Drums'
+        },
+        {
+            question: 'What part of the drumset can act as the metronome during a song?',
+            choices: ['Snare','Kick Drum','Cymbals', 'Hi-hats'],
+            questionChoiceA: 'Snare',
+            questionChoiceB: 'Kick Drum',
+            questionChoiceC: 'Cymbals',
+            questionChoiceD: 'Hi-hats',
+            correctAnswer: 'Hi-hats' 
+        },
+        {
+            question: 'What is the name of this drum piece?',
+            questionImage: '<img src="img/snare-drum.jpg">',
+            choices: ['Tom','Hi-Hat','Snare', 'Kick Drum'],
+            questionChoiceA: 'Tom',
+            questionChoiceB: 'Hi-Hat',
+            questionChoiceC: 'Snare',
+            questionChoiceD: 'Kick Drum',
+            correctAnswer: 'Snare' 
+        },
+        {
+            question: 'Which parts of a drumset do you use your feet to make/alter a sound?',
+            choices: ['Hi-Hat and Kick Drum','Kick drum and Snare','Hit-Hats and Toms', 'Kick Drum and Cymbals'],
+            questionChoiceA: 'Hi-Hat and Kick Drum',
+            questionChoiceB: 'Kick drum and Snare',
+            questionChoiceC: 'Hit-Hats and Toms',
+            questionChoiceD: 'Kick Drum and Cymbals', 
+            correctAnswer: 'Hi-Hat and Kick Drum'
+        },
+        {
+            question: 'What is the name of this piece?',
+            questionImage: '<img src="img/drum-throne.jpg">',
+            choices: ['Drum Seat','Drum Chair','Drum Stool', 'Drum Throne'],
+            questionChoiceA: 'Drum Seat',
+            questionChoiceB: 'Drum Chair',
+            questionChoiceC: 'Drum Stool',
+            questionChoiceD: 'Drum Throne', 
+            correctAnswer: 'Drum Throne'
+        },
+        {
+            question: 'What is the best instrumnet to play in the world?',
+            choices: ['Drums','Piano','Electric Guitar', 'Bass Guitar'],
+            questionChoiceA: 'Drums',
+            questionChoiceB: 'Piano',
+            questionChoiceC: 'Electric Guitar',
+            questionChoiceD: 'Bass Guitar', 
+            correctAnswer: 'Drums'
+        }
+    ],
+    score: 0,
+}
+
+var startQuizHandler = function(){
+    $('.startQuiz').on('click', function(event){
+        event.preventDefault();
+        $('.quizStartWrapper').fadeOut(500);
+        $('.questionWrapper').delay(500).fadeIn();
+    });
+}
+
+var displayResults = function(){
+    $('.questionWrapper').fadeOut(500);
+    $('.quizEndWrapper').delay(500).fadeIn();
+
+    var answersCorrect      = quizState.score;
+    var numberOfQuestions   = quizState.questions.length;
+
+    var quizScore = Math.ceil((answersCorrect / numberOfQuestions ) * 100) + '%';
+
+    if (quizScore > 50){
+        var overFiftyMessage = 'Congratulations! You got ' + answersCorrect + ' out of ' + numberOfQuestions + ' answers correct. Your score is: ';
+
+        $('.endMessage').text(overFiftyMessage);
+    } else {
+        var underFiftyMessage = 'Good job. You got ' + answersCorrect + ' out of ' + numberOfQuestions + ' answers correct. Your score is: ';
+
+        $('.endMessage').text(underFiftyMessage);
     }
-]
+
+    $('.results').text(quizScore);
 }
 
 var renderQuiz = function(quizState){
@@ -95,14 +133,7 @@ var renderQuiz = function(quizState){
 }
 
 var incrementQuestionIndex = function(quizState){
-    if (quizState.questionIndex === 6){
-        quizState.questionIndex = 0;
-        return renderQuiz(quizState);
-
-    } else {
-        quizState.questionIndex++
-        return renderQuiz(quizState);
-    }
+    quizState.questionIndex++
 }
 
 var addQuestionProgress = function(quizState){
@@ -117,16 +148,30 @@ var resetQuestion = function(){
     $('.message').removeClass('correct error');
     $('.message').text(' ');
 
-    // $('#drumQuiz').find('input').css('border', '1px solid red');
     console.log('reset');
     $('input[type=submit]').show();
     $('.nextButton').hide(); 
 }
 
+var incrementScore = function(quizState){
+    quizState.score++
+}
+
+var resetQuiz = function(quizState){
+    quizState.questionIndex = 0;  
+}
+
 $(document).ready(function(){
+    startQuizHandler();
     renderQuiz(quizState);
     addQuestionProgress(quizState);
     
+    $('.nextButton').on('click', function(event){   
+        resetQuestion();             
+        renderQuiz(quizState);
+        addQuestionProgress(quizState);
+    })
+
     $('#drumQuiz').submit(function(event){
         event.preventDefault();
 
@@ -135,16 +180,22 @@ $(document).ready(function(){
 
         if(selectedAnswer === correctAnswer){
             $('.message').addClass('correct').text("Correct!");
-            $('input[type=submit]').hide();
-            $('.nextButton').show(); 
-
-            $('.nextButton').on('click', function(event){                
-                resetQuestion();
-                incrementQuestionIndex(quizState);
-                addQuestionProgress(quizState);
-            })
+            incrementScore(quizState);
+            console.log(quizState.score);
         } else {
-            $('.message').addClass('error').text("Incorrect, Please try again!");
+            $('.message').addClass('error').text("Incorrect, Please continue.");
         }
+
+        $('input[type=submit]').hide();
+        $('.nextButton').show(); 
+        
+        if(quizState.questionIndex === 6){
+            // resetQuiz(quizState);
+            displayResults();
+        } else {
+            incrementQuestionIndex(quizState);
+        }
+
     });
+
 });

@@ -1,54 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Drum Quiz</title>
+    <title>Drum Quiz</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <div class="wrapper">
+        <main>
+            <div class="quizStartWrapper">
+                <h1>The Drum Quiz</h1>
+                <p>Welcome to "The Drum Quiz" where you will test your basic knowledge of the drums. Select start quiz below to begin. Good luck!</p>
+                <button class="startQuiz">Start Quiz</button>
+            </div><!-- end .quizStartWrapper -->
 
-  <div class="wrapper">
-      <div class="progress">
-          <p><span class="currentQuestionNumber"></span> of <span class="numberOfQuestions"></span> questions</p>
-      </div>
-      <header>
-        <h1>Drum Quiz</h1>
-      </header>
-      <main>
-        <div class="questionWrapper">
-            <h2 class="questionTitle"></h2>
-            <div class="choiceWrapper">
-                <p class="message"></p>
-                <form id="drumQuiz">
-                    <div class="inputWrapper">
-                        <input type="radio" name="answer">
-                        <span class="inputA"></span>
-                    </div>
-                    <div class="inputWrapper">
-                        <input type="radio" name="answer">
-                        <span class="inputB"></span>
-                    </div>
-                    <div class="inputWrapper">
-                        <input type="radio" name="answer">
-                        <span class="inputC"></span>
-                    </div>
-                    <div class="inputWrapper">
-                        <input type="radio" name="answer">
-                        <span class="inputD"></span>
-                    </div>
-                    <div class="buttonWrapper">
-                        <input class="hidden nextButton" type="reset" value="Next Question">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
+            <div class="questionWrapper hidden">
+                <div class="progress">
+                    <p><span class="currentQuestionNumber"></span> of <span class="numberOfQuestions"></span> questions</p>
+                </div>
+                <h2>Drum Questions</h1>
+                <h3 class="questionTitle"></h2>
+                <div class="choiceWrapper">
+                    <p class="message"></p>
+                    <form id="drumQuiz">
+                        <div class="inputWrapper">
+                            <input type="radio" name="answer">
+                            <span class="inputA"></span>
+                        </div>
+                        <div class="inputWrapper">
+                            <input type="radio" name="answer">
+                            <span class="inputB"></span>
+                        </div>
+                        <div class="inputWrapper">
+                            <input type="radio" name="answer">
+                            <span class="inputC"></span>
+                        </div>
+                        <div class="inputWrapper">
+                            <input type="radio" name="answer">
+                            <span class="inputD"></span>
+                        </div>
+                        <div class="buttonWrapper">
+                            <input class="hidden nextButton" type="reset" value="Next Question">
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div><!-- end .questionWrapper -->
+            <div class="quizEndWrapper hidden">
+                <h2>Drum Quiz</h2>
+                <p class="endMessage"></p>
+                <p class="results"></p>
+                <p>If you are unhappy with your score, you can retake the quiz by selecting the "Restart Quiz" button bellow.</p>
+                <button class="restartQuiz">Restart Quiz</button>
             </div>
-        </div><!-- end .questionWrapper -->
-      </main>
-  </div><!-- end .wrapper -->
-<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-<script src="js/app.js"></script>
+        </main>
+    </div><!-- end .wrapper -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
