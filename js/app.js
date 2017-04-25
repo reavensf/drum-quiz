@@ -8,12 +8,12 @@ var quizState = {
             correctAnswer: 'Drums',
         },
         {
-            question: 'What musical instrument can allow you to have a great workout while playing it?',
+            question: 'What musical instrument can give you a great workout while playing it?',
             choices: ['Drums','Guitar','Triangle', 'Zylophone'],
             correctAnswer: 'Drums'
         },
         {
-            question: 'What part of the drumset can act as the metronome during a song?',
+            question: 'What part of the drum set can act as the metronome during a song?',
             choices: ['Snare','Kick Drum','Cymbals', 'Hi-hats'],
             correctAnswer: 'Hi-hats' 
         },
@@ -24,15 +24,30 @@ var quizState = {
             correctAnswer: 'Snare' 
         },
         {
-            question: 'Which parts of a drumset do you use your feet to make/alter a sound?',
-            choices: ['Hi-Hat and Kick Drum','Kick drum and Snare','Hit-Hats and Toms', 'Kick Drum and Cymbals'],
-            correctAnswer: 'Hi-Hat and Kick Drum'
-        },
-        {
             question: 'What is the name of this piece?',
             questionImage: '<img src="img/drum-throne.jpg">',
             choices: ['Drum Seat','Drum Chair','Drum Stool', 'Drum Throne'],
             correctAnswer: 'Drum Throne'
+        },
+        {
+            question: 'Which parts of a drum set do you use your feet to make/alter a sound?',
+            choices: ['Hi-Hat and Kick Drum','Kick drum and Snare','Hit-Hats and Toms', 'Kick Drum and Cymbals'],
+            correctAnswer: 'Hi-Hat and Kick Drum'
+        },
+        {
+            question: 'Which instrument does a drummer listen to follow its patterns during a song?',
+            choices: ['Piano','Bass Guitar','Electric Guitar', 'None of the above'],
+            correctAnswer: 'Bass Guitar'
+        },
+        {
+            question: 'What cymbal is usually played on the same beat as the bass drum?',
+            choices: ['Crash Cymbal','Splash Cymbal','Ride Cymbal', 'None of the above'],
+            correctAnswer: 'Crash Cymbal'
+        },
+        {
+            question: 'Which drum has the lowest tone in a drum set?',
+            choices: ['Rack Tom','Floor Tom','Bass Drum', 'Snare'],
+            correctAnswer: 'Bass Drum'
         },
         {
             question: 'What is the best instrumnet to play in the world?',
@@ -88,7 +103,7 @@ var renderQuiz = function(quizState){
 
     $('.answersWrapper').html(choicesHtml);
 
-    if(quizState.questionIndex === 3 || quizState.questionIndex === 5){
+    if(quizState.questionIndex === 3 || quizState.questionIndex === 4){
         var questionImage = quizState.questions[quizState.questionIndex].questionImage;
 
         if ($('.choiceWrapper').children('img')){
@@ -176,7 +191,7 @@ $(document).ready(function(){
         $('input[type=submit]').hide();
         $('.nextButton').show(); 
         
-        if(quizState.questionIndex === 6){
+        if(quizState.questionIndex === 9){
             displayResults();
             $('.nextButton').hide();
         } else {
