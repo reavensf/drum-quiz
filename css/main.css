@@ -11,6 +11,14 @@ body {
   display: none;
 }
 
+.greenText{
+  color: green;
+}
+
+.yellowText{
+  color: gold;
+}
+
 button, input[type="text"] {
   padding: 10px;
 }
@@ -91,6 +99,13 @@ img{
 }
 
 input[type=submit], input[type=reset]{
+  cursor: pointer;
   float: right;
   padding: 10px;
+}
+
+.results{
+      font-size: 50px;
+      text-align: center;
+      line-height: 1em;
 }

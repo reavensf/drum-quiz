@@ -26,21 +26,8 @@
                 <div class="choiceWrapper">
                     <p class="message"></p>
                     <form id="drumQuiz">
-                        <div class="inputWrapper">
-                            <input type="radio" name="answer">
-                            <span class="inputA"></span>
-                        </div>
-                        <div class="inputWrapper">
-                            <input type="radio" name="answer">
-                            <span class="inputB"></span>
-                        </div>
-                        <div class="inputWrapper">
-                            <input type="radio" name="answer">
-                            <span class="inputC"></span>
-                        </div>
-                        <div class="inputWrapper">
-                            <input type="radio" name="answer">
-                            <span class="inputD"></span>
+                        <div class="answersWrapper">
+                            
                         </div>
                         <div class="buttonWrapper">
                             <input class="hidden nextButton" type="reset" value="Next Question">
@@ -50,11 +37,13 @@
                 </div>
             </div><!-- end .questionWrapper -->
             <div class="quizEndWrapper hidden">
-                <h2>Drum Quiz</h2>
+                <h2>Drum Quiz Results</h2>
                 <p class="endMessage"></p>
                 <p class="results"></p>
                 <p>If you are unhappy with your score, you can retake the quiz by selecting the "Restart Quiz" button bellow.</p>
-                <button class="restartQuiz">Restart Quiz</button>
+                <div class="buttonWrapper">
+                    <button class="restartQuiz">Restart Quiz</button>
+                </div>
             </div>
         </main>
     </div><!-- end .wrapper -->
